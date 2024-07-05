@@ -1,25 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+  "manifest_version" : 3,
+  "name" : "EZ-Utilities",
+  "version" : "1.0.1",
+  "icons" : {
+      "32" : "favicon-16x16.png",
+      "16" : "favicon-32x32.png",
+      "48" : "favicon.ico",
+      "192" : "192x192.png"
+  },
+  "permissions" : [
+      "activeTab",
+      "scripting",
+      "storage"
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "description": "All your essential tools in one place.A collection of useful tools in one Chrome extension.",
+  "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+          "16": "favicon-16x16.png",
+          "32": "favicon-32x32.png",
+          "48": "favicon.ico",
+          "192" : "192x192.png"
+      }
+  }
 }
