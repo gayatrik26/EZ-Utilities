@@ -15,8 +15,8 @@
     box-sizing: border-box;
 }
 .popup-container {
-    width: 300px;
-    height: 500px;
+    width: 340px;
+    height:fit-content;
     background-color: #cbf3f0; /* light teal */
     color: #2ec4b6; /* teal mid */
     display: flex;
@@ -40,3 +40,4 @@
     background-color: #ff9f1c; /* orangeD */
     color: #fff;
 }
+

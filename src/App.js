@@ -1,36 +1,51 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
-import Homepage from './components/Homepage';
-import ColorPicker from './components/ColorPicker';
-import TextUtility from './components/TextUtility';
-import YouTubePause from './components/YouTubePause';
-import PasswordGenerator from './components/PasswordGenerator';
-import TodoList from './components/TodoList';
-import RockPaperScissors from './components/RockPaperScissors';
-import ThisOrThat from './components/ThisOrThat';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Homepage from "./components/Homepage";
+import ColorPicker from "./components/ColorPicker";
+import TextUtility from "./components/TextUtility";
+import YouTubePause from "./components/YouTubePause";
+import PasswordGenerator from "./components/PasswordGenerator";
+import TodoList from "./components/TodoList";
+import RockPaperScissors from "./components/RockPaperScissors";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 
 const App = () => {
+    const [activeComp, setActiveComp] = useState(0);
+    const goBack = () => {
+        setActiveComp(0);
+    }
+    const renderComponent = () => {
+        switch (activeComp) {
+            case 0:
+                return <Homepage setActive={setActiveComp} />;
+            case 1:
+                return <ColorPicker goBackClick={goBack} />;
+            case 2:
+                return <TextUtility goBackClick={goBack} />;
+            case 3:
+                return <YouTubePause goBackClick={goBack} />;
+            case 4:
+                return <PasswordGenerator goBackClick={goBack} />;
+            case 5:
+                return <TodoList goBackClick={goBack} />;
+            case 6:
+                return <RockPaperScissors goBackClick={goBack} />;
+            default:
+                return <></>;
+        }
+    };
     return (
-        <div className="popup-container">
+        <div className="popup-container w-80 h-auto bg-[#cbf3f0] text-[#2ec4b6] flex flex-col justify-between">
             <Router>
                 <Navbar title="EZ Utilities" />
-                <Routes>
-                    <Route path="/" element={<Homepage />} />
-                    <Route path="/color-picker" element={<ColorPicker />} />
-                    <Route path="/text-utility" element={<TextUtility />} />
-                    <Route path="/youtube-pause" element={<YouTubePause />} />
-                    <Route path="/password-generator" element={<PasswordGenerator />} />
-                    <Route path="/todo-list" element={<TodoList />} />
-                    <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
-                    <Route path="/this-or-that" element={<ThisOrThat />} />
-                </Routes>
+                {renderComponent()}
                 <Footer title="EZ Utilities" />
             </Router>
         </div>
     );
-}
+};
 
 export default App;
