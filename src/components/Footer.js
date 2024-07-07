@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 function Footer(props) {
     const footerStyle = {
-        // width: '100%',
+        height : "40px",
         textAlign: 'center',
-        padding: '1.25rem', // Equivalent to p-5
+        padding: '0.5rem',
         backgroundColor: '#ffbf69',
         color: 'white',
     };
 
     const paragraphStyle = {
-        fontSize: '1.5rem', // Equivalent to text-[1.5rem]
-        fontWeight: '500', // Equivalent to font-medium
+        fontSize: '1rem', 
+        fontWeight: '400', 
     };
 
     return (

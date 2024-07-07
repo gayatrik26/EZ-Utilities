@@ -5,16 +5,16 @@ import copy from "copy-to-clipboard";
 const Button = ({ onClick, disabled, children }) => (
     <button
         style={{
-            padding: '8px 12px',
-            fontSize: '1rem',
-            marginBottom: '10px',
-            minWidth: '100px',
+            padding: '0.3rem 0.4rem',
+            fontSize: '0.6rem',
+            marginBottom: '8px',
             textAlign: 'center',
-            backgroundColor: '#007bff',
+            backgroundColor: '#ffbf69',
             color: 'white',
             border: 'none',
-            borderRadius: '4px',
+            borderRadius: '0.25rem',
             cursor: 'pointer',
+            fontSize:"0.8rem"
         }}
         disabled={disabled}
         onClick={onClick}
@@ -22,6 +22,9 @@ const Button = ({ onClick, disabled, children }) => (
         {children}
     </button>
 );
+{/* <div style={{ alignSelf:"flex-start" , margin:"0.4rem" , backgroundColor:"#ffbf69",color:"white" , padding:"0.3rem 0.6rem", borderRadius:"0.25rem",cursor:"pointer", fontSize:"0.75rem"}}>
+                <button onClick={goBackClick}>Go Home</button>
+            </div> */}
 
 const TextUtility = ({ goBackClick }) => {
     const [text, setText] = useState("");
@@ -77,34 +80,34 @@ const TextUtility = ({ goBackClick }) => {
     }, [text]);
 
     return (
-        <div style={{ width: '330px', fontFamily: 'Arial, sans-serif' }}>
-            <div style={{ backgroundColor: '#f0f0f0', borderRadius: '5px', padding: '10px', marginBottom: '10px' }}>
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Text Manipulation</h3>
+        <div>
+            <div style={{padding: '0.4rem 0.7rem', marginBottom: '0.2rem' }}>
+            <h1 style={{fontSize:"1.2rem" , fontWeight : "600", alignSelf:"flex-start" , marginBottom:"0.4rem"}}>TextUtility</h1>
                 <textarea
-                    style={{ backgroundColor: 'white', color: 'black', marginBottom: '10px', border: '1px solid #ced4da', borderRadius: '4px', padding: '6px 12px', fontSize: '1rem', width: '100%', maxWidth: '100%', minHeight: '80px', resize: 'vertical' }}
+                    style={{ backgroundColor: 'white', color: 'black', marginBottom: '10px', border: '1px solid #ced4da', borderRadius: '4px', padding: '6px 12px', fontSize: '1rem', width: '100%' ,minHeight: '100px', resize: 'vertical' }}
                     onChange={handleOnTextChange}
                     value={text}
                     placeholder='Enter your text here'
                 />
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
                     <Button disabled={text.length === 0} onClick={handleUpClick}>Uppercase</Button>
-                    <Button disabled={text.length === 0} onClick={handleLoClick}>Lowercase</Button>
-                    <Button disabled={text.length === 0} onClick={textReplicate}>Replicate</Button>
                     <Button disabled={text.length === 0} onClick={invertText}>Invert</Button>
                     <Button disabled={text.length === 0} onClick={handleClearClick}>Clear</Button>
+                    <Button disabled={text.length === 0} onClick={handleLoClick}>Lowercase</Button>
                     <Button disabled={text.length === 0} onClick={handleCopyClick}>Copy</Button>
+                    <Button disabled={text.length === 0} onClick={textReplicate}>Replicate</Button>
                 </div>
                 {copied && (
-                    <p style={{ fontSize: '0.8rem', color: 'green', marginTop: '5px', textAlign: 'center' }}>Text copied!</p>
+                    <p style={{ fontSize: '0.85rem',fontWeight:"500", color: '#ffbf69', textAlign: 'center' }}>Text copied!</p>
                 )}
-                <div style={{ marginTop: '15px', textAlign: 'center' }}>
-                    <h2 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Text Summary</h2>
-                    <p style={{ fontSize: '1rem', marginBottom: '5px' }}>{wordCounter()} words and {text.length} characters</p>
-                    <p style={{ fontSize: '1rem', marginBottom: '5px' }}>{minutesRead()} minutes read</p>
+                <div style={{ marginTop: '0.5rem', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '1rem', fontWeight:"500", marginBottom: '0.2rem' }}>Text Summary</h2>
+                    <p style={{ fontSize: '1rem', marginBottom: '0.2rem', fontWeight:"500" }}>{wordCounter()} words and {text.length} characters</p>
+                    <p style={{ fontSize: '1rem', marginBottom: '0.2rem',fontWeight:"500" }}>{minutesRead()} minutes read</p>
                 </div>
             </div>
-            <div style={{ textAlign: 'center', marginTop: '10px' }}>
-                <button style={{ padding: '6px 12px', fontSize: '1rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} onClick={goBackClick}>Go Home</button>
+            <div style={{ alignSelf:"flex-start" , margin:"0.4rem" , backgroundColor:"#ffbf69",color:"white" , padding:"0.3rem 0.6rem", borderRadius:"0.25rem",cursor:"pointer", fontSize:"0.75rem", maxWidth:"4.7rem"}}>
+                <button onClick={goBackClick}>Go Home</button>
             </div>
         </div>
     );

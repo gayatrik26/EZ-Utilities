@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 export function Navbar(props) {
     const headerStyle = {
         textAlign: 'center',
-        // width: '100%',
-        padding: '1.25rem', // Equivalent to p-5
+        height : "40px",
+        padding: '0.5rem', // Equivalent to p-5
         backgroundColor: '#ffbf69',
         color: 'white',
     };
 
     const paragraphStyle = {
-        fontSize: '1.5rem', // Equivalent to text-[1.5rem]
-        fontWeight: '500', // Equivalent to font-medium
+        fontSize: '1rem', // Equivalent to text-[1.5rem]
+        fontWeight: '400', // Equivalent to font-medium
     };
 
     return (
