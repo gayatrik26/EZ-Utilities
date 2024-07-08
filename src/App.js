@@ -4,12 +4,13 @@ import "./index.css";
 import Homepage from "./components/Homepage";
 import ColorPicker from "./components/ColorPicker";
 import TextUtility from "./components/TextUtility";
-import YouTubePause from "./components/YouTubePause";
+import YouTubeTimeSpan from "./components/YouTubeTimeSpan";
 import PasswordGenerator from "./components/PasswordGenerator";
 import TodoList from "./components/TodoList";
 import RockPaperScissors from "./components/RockPaperScissors";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import WeatherWise from "./components/WeatherWise";
 
 
 const App = () => {
@@ -26,12 +27,14 @@ const App = () => {
             case 2:
                 return <TextUtility goBackClick={goBack} />;
             case 3:
-                return <YouTubePause goBackClick={goBack} />;
+                return <WeatherWise goBackClick={goBack}/>;
             case 4:
                 return <PasswordGenerator goBackClick={goBack} />;
             case 5:
                 return <TodoList goBackClick={goBack} />;
             case 6:
+                return <YouTubeTimeSpan goBackClick={goBack} />;
+            case 7:
                 return <RockPaperScissors goBackClick={goBack} />;
             default:
                 return <></>;

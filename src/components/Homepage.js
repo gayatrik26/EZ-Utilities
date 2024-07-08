@@ -9,10 +9,11 @@ const Homepage = ({ setActive }) => {
                 <div className="feature-grid">
                     <Feature icon="🎨" title="Color Picker" onClick={() => setActive(1)} />
                     <Feature icon="📝" title="Text Utility" onClick={() => setActive(2)} />
-                    <Feature icon="▶️" title="YouTube Video Pause" onClick={() => setActive(3)} />
+                    <Feature icon="🌦️🌈⛱️" title="Weather Wise" onClick={() => setActive(3)}/>
                     <Feature icon="🔒" title="Password Generator" onClick={() => setActive(4)} />
                     <Feature icon="🗒️" title="To-Do List" onClick={() => setActive(5)} />
-                    <Feature icon="✊✋✌️" title="Rock Paper Scissors" onClick={() => setActive(6)} />
+                    <Feature icon="▶️" title="YouTube TimeSpan" onClick={() => setActive(6)} />
+                    <Feature icon="✊✋✌️" title="Rock Paper Scissors" onClick={() => setActive(7)} />
                 </div>
             </main>
         </div>
