@@ -14,9 +14,20 @@ const ColorPicker = ({ goBackClick }) => {
     const ChangeBg = async () => {
         try {
             let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
             if (!tab || !tab.id) {
-                throw new Error('Invalid tab');
+                // throw new Error('Invalid tab');
+                setError('This is not a valid URL/tab. Please open in another URL.');
             }
+
+            const url = new URL(tab.url);
+
+            // Check if the URL is a chrome:// page, new tab, or local file
+            if (url.protocol === 'chrome:' || url.href === 'about:newtab' || url.protocol === 'file:') {
+                // throw new Error('This is not a valid URL/tab. Please open in another URL.');
+                setError('This is not a valid URL/tab. Please open in another URL.');
+            }
+
             await chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 args: [color],
@@ -24,12 +35,14 @@ const ColorPicker = ({ goBackClick }) => {
                     document.body.style.backgroundColor = color;
                 }
             });
+
             setError(''); // Clear any previous error message
         } catch (err) {
+            // setError(err.message);
             setError('This is not a valid URL/tab. Please open in another URL.');
             setTimeout(() => {
                 setError('');
-            }, 2000); // Clear the error message after 5 seconds
+            }, 10000); // Clear the error message after 5 seconds
         }
     };
 
@@ -44,7 +57,7 @@ const ColorPicker = ({ goBackClick }) => {
                 <h2 style={{ margin: "0.2rem" }}>Selected Color:</h2>
                 <div style={{ backgroundColor: color, width: '50px', height: '50px' }}></div>
             </div>
-            {error && <p style={{marginLeft:"0.5rem", color: '#ff9f1c', alignSelf: "flex-start" }}>{error}</p>}
+            {error && <p style={{ marginLeft: "0.5rem", color: '#ff9f1c', alignSelf: "flex-start" , fontSize:"0.7rem"}}>{error}</p>}
             <div style={{ alignSelf: "flex-start" }}>
                 <Buttons text="Go Home" onClick={goBackClick} />
                 <Buttons text="Change Background-color" onClick={ChangeBg} />
