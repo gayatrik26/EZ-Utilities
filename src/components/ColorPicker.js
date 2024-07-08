@@ -42,7 +42,7 @@ const ColorPicker = ({ goBackClick }) => {
             setError('This is not a valid URL/tab. Please open in another URL.');
             setTimeout(() => {
                 setError('');
-            }, 10000); // Clear the error message after 5 seconds
+            }, 2000); // Clear the error message after 5 seconds
         }
     };
 
