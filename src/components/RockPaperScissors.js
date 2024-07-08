@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Buttons from './Buttons';
 
 const RockPaperScissors = ({ goBackClick }) => {
     const [scores, setScores] = useState({ user: 0, comp: 0 });
@@ -25,7 +26,7 @@ const RockPaperScissors = ({ goBackClick }) => {
                 (userChoice === 'scissors' && compChoice === 'paper')
             );
 
-            const messagePrefix = userWin ? 'You win! Your' : 'You lose!';
+            const messagePrefix = userWin ? 'You win!Your' : 'You lose!';
 
             setScores(prev => ({
                 ...prev,
@@ -55,17 +56,16 @@ const RockPaperScissors = ({ goBackClick }) => {
 
     return (
         <div className="page-container" style={styles.pageContainer}>
-            <h1 style={styles.heading}>Rock Paper Scissors</h1>
-            <button onClick={goBackClick} style={styles.button}>Go Home</button>
+            <h1 style={{ fontSize: "1.2rem", fontWeight: "600", alignSelf: "flex-start", marginBottom: "0.4rem" }}>Rock Paper Scissors</h1>
 
             <div className="choices" style={styles.choices}>
                 {choices.map(({ id, icon }) => (
                     <div key={id}
-                         className={`choice ${selectedChoice === id ? 'active' : ''}`}
-                         onClick={() => handleChoiceClick(id)}
-                         onMouseEnter={() => setSelectedChoice(id)}
-                         onMouseLeave={() => setSelectedChoice(null)}
-                         style={styles.choice}>
+                        className={`choice ${selectedChoice === id ? 'active' : ''}`}
+                        onClick={() => handleChoiceClick(id)}
+                        onMouseEnter={() => setSelectedChoice(id)}
+                        onMouseLeave={() => setSelectedChoice(null)}
+                        style={styles.choice}>
                         <span style={styles.icon}>{icon}</span>
                     </div>
                 ))}
@@ -87,8 +87,10 @@ const RockPaperScissors = ({ goBackClick }) => {
                     <p style={styles.msgText}>{message}</p>
                 </div>
             </div>
-
-            <button onClick={handleReset} style={styles.resetButton}>Reset</button>
+            <div style={{alignSelf:"flex-start"}}>
+                <Buttons text="Reset" onClick={handleReset} />
+                <Buttons text="Go Home" onClick={goBackClick} />
+            </div>
         </div>
     );
 };
@@ -96,47 +98,38 @@ const RockPaperScissors = ({ goBackClick }) => {
 const styles = {
     pageContainer: {
         fontFamily: 'monospace',
-        padding: '10px',
-        width: '330px',  // Adjusted width for Chrome extension popup
-        backgroundColor: '#f0f0f0',  // Example background color
-        borderRadius: '5px',  // Example border radius
-    },
-    heading: {
-        backgroundColor: '#111131',
-        color: '#fff',
-        height: '5rem',
-        lineHeight: '5rem',
-        textAlign: 'center',
-        margin: 0,
-        borderRadius: '5px 5px 0 0',  // Example rounded corners for top
+        padding: '0.5rem',
+        width: '280px',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
     },
     choices: {
         display: 'flex',
         justifyContent: 'center',
         gap: '1rem',
         marginTop: '1rem',
+        alignItems: "center",
     },
     choice: {
-        height: '100px',  // Adjusted size for choices
-        width: '100px',   // Adjusted size for choices
+        height: '70px',
+        width: '70px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '50%',
         cursor: 'pointer',
-        backgroundColor: '#e0e0e0',  // Example background color
+        backgroundColor: '#fff',  // Light-orange
         transition: 'background-color 0.3s ease',
     },
     icon: {
-        fontSize: '3rem',
-        color: '#333',  // Example color for icons
+        fontSize: '2.5rem',
     },
     scoreBoard: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
-        gap: '0.5rem',
+        gap: '0.8rem',
         marginTop: '1rem',
     },
     score: {
@@ -149,38 +142,19 @@ const styles = {
     msgBox: {
         textAlign: 'center',
         marginTop: '1rem',
+        marginBottom: "0.5rem"
     },
     msg: {
-        backgroundColor: '#111131',
-        fontSize: '1rem',
-        color: '#fff',
-        padding: '0.5rem',
+        backgroundColor: '#fff',  // Teal-mid
+        fontSize: '0.82rem',
+        color: '#2ec4b6',
+        padding: '0.6rem',
         fontWeight: 'bold',
         borderRadius: '5px',
         textAlign: 'center',
     },
     msgText: {
         margin: 0,
-    },
-    button: {
-        margin: '1rem',
-        padding: '0.5rem 1rem',
-        fontSize: '1rem',
-        backgroundColor: '#111131',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '0.3rem',
-        cursor: 'pointer',
-    },
-    resetButton: {
-        marginTop: '1rem',
-        padding: '0.5rem 1rem',
-        fontSize: '1rem',
-        backgroundColor: '#ffbf69',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '0.3rem',
-        cursor: 'pointer',
     },
 };
 

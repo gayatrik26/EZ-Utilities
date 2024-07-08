@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID generator
+import Buttons from "./Buttons";
 
 const TodoList = ({ goBackClick }) => {
   const [tasks, setTasks] = useState([]);
@@ -63,13 +64,18 @@ const TodoList = ({ goBackClick }) => {
             onChange={(e) => setInputTaskValue(e.target.value)}
             placeholder="Add item"
           />
-          <button onClick={addTask} style={styles.addButton}>Add</button>
+          <button onClick={addTask} onMouseEnter={e => {
+            e.target.style.backgroundColor = '#ff9f1c';
+            e.target.style.color = '#4d4d4d';
+          }}
+            onMouseLeave={e => {
+              e.target.style.backgroundColor = '#ffbf69';
+              e.target.style.color = '#fff';
+            }} style={styles.addButton}>Add</button>
         </div>
         {errorMessage && <p style={styles.errorMessage}>{errorMessage}</p>}
       </div>
-      <div style={{ alignSelf: "flex-start", backgroundColor: "#ffbf69", color: "white", padding: "0.3rem 0.6rem", borderRadius: "0.25rem", cursor: "pointer", fontSize: "0.75rem", maxWidth: "4.7rem" }}>
-        <button onClick={goBackClick}>Go Home</button>
-      </div>
+      <Buttons text="Go Home" onClick={goBackClick} />
     </div>
   );
 };
@@ -83,7 +89,6 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.2rem',
     backgroundColor: '#fff',
     padding: '0.2rem 0.5rem',
     borderRadius: "1.2rem",
@@ -93,6 +98,7 @@ const styles = {
     listStyleType: 'none',
     padding: 0,
     margin: 0,
+    fontSize:"0.9rem"
   },
   task: {
     display: 'flex',
@@ -116,11 +122,14 @@ const styles = {
   form: {
     display: 'flex',
     alignItems: 'center',
+    gap:"0.5rem",
+    padding:"0.2rem",
   },
   inputTask: {
     padding: '0.4rem',
     fontSize: '1rem',
-    outline: "none"
+    outline: "none",
+    borderRadius:"1.2rem"
   },
   addButton: {
     padding: '0.5rem',

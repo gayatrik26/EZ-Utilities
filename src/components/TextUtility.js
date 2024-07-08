@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import copy from "copy-to-clipboard";
+import Buttons from './Buttons';
 
 const Button = ({ onClick, disabled, children }) => (
     <button
         style={{
             padding: '0.3rem 0.4rem',
-            fontSize: '0.6rem',
             marginBottom: '8px',
             textAlign: 'center',
             backgroundColor: '#ffbf69',
@@ -22,9 +22,7 @@ const Button = ({ onClick, disabled, children }) => (
         {children}
     </button>
 );
-{/* <div style={{ alignSelf:"flex-start" , margin:"0.4rem" , backgroundColor:"#ffbf69",color:"white" , padding:"0.3rem 0.6rem", borderRadius:"0.25rem",cursor:"pointer", fontSize:"0.75rem"}}>
-                <button onClick={goBackClick}>Go Home</button>
-            </div> */}
+
 
 const TextUtility = ({ goBackClick }) => {
     const [text, setText] = useState("");
@@ -106,9 +104,7 @@ const TextUtility = ({ goBackClick }) => {
                     <p style={{ fontSize: '1rem', marginBottom: '0.2rem',fontWeight:"500" }}>{minutesRead()} minutes read</p>
                 </div>
             </div>
-            <div style={{ alignSelf:"flex-start" , margin:"0.4rem" , backgroundColor:"#ffbf69",color:"white" , padding:"0.3rem 0.6rem", borderRadius:"0.25rem",cursor:"pointer", fontSize:"0.75rem", maxWidth:"4.7rem"}}>
-                <button onClick={goBackClick}>Go Home</button>
-            </div>
+            <Buttons text="Go Home" onClick={goBackClick}/>
         </div>
     );
 };

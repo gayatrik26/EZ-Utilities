@@ -12,7 +12,7 @@ export function Navbar(props) {
 
     const paragraphStyle = {
         fontSize: '1rem', // Equivalent to text-[1.5rem]
-        fontWeight: '400', // Equivalent to font-medium
+        fontWeight: '500', // Equivalent to font-medium
     };
 
     return (

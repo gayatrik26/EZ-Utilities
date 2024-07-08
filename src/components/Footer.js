@@ -12,7 +12,7 @@ function Footer(props) {
 
     const paragraphStyle = {
         fontSize: '1rem', 
-        fontWeight: '400', 
+        fontWeight: '500', 
     };
 
     return (
