@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* global chrome , Chrome */
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID generator
 import Buttons from "./Buttons";
 
@@ -6,6 +7,28 @@ const TodoList = ({ goBackClick }) => {
   const [tasks, setTasks] = useState([]);
   const [inputTaskValue, setInputTaskValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Function to load tasks from Chrome storage
+  const loadTasks = () => {
+    chrome.storage.sync.get(['tasks'], (result) => {
+      if (result.tasks) {
+        setTasks(result.tasks);
+      }
+    });
+  };
+
+  // Function to save tasks to Chrome storage
+  const saveTasks = (newTasks) => {
+    chrome.storage.sync.set({ tasks: newTasks });
+  };
+
+  useEffect(() => {
+    loadTasks();
+  }, []);
+
+  useEffect(() => {
+    saveTasks(tasks);
+  }, [tasks]);
 
   const addTask = () => {
     const inputValue = inputTaskValue.trim();
