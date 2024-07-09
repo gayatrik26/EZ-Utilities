@@ -38,7 +38,7 @@ Customize settings and preferences to tailor EZ Utilities to your workflow. Each
 Download EZ Utilities today and streamline your browsing experience with these essential tools, all conveniently accessible from your Chrome browser.
 
 
-## Here are some Screenshots os the App
+## Here are some Screenshots
 ![Screenshot 2024-07-09 145750](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/3f8785a6-63fd-4ccf-b293-8ad4e6e6b76d)
 
 
