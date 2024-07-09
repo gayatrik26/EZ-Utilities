@@ -1,15 +1,14 @@
 /* global chrome , Chrome */
 import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid'; // Import UUID generator
+import { v4 as uuidv4 } from 'uuid';
 import Buttons from "./Buttons";
-import '../styles/todo.css'; // Import the CSS file for styling
+import '../styles/todo.css';
 
 const TodoList = ({ goBackClick }) => {
   const [tasks, setTasks] = useState([]);
   const [inputTaskValue, setInputTaskValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Function to load tasks from Chrome storage
   const loadTasks = () => {
     if (chrome && chrome.storage && chrome.storage.sync) {
       chrome.storage.sync.get(['tasks'], (result) => {
@@ -21,11 +20,10 @@ const TodoList = ({ goBackClick }) => {
       setErrorMessage('Failed to load tasks: chrome.storage.sync is not available.');
       setTimeout(() => {
         setErrorMessage('');
-      }, 2000); // Clear the error message after 5 seconds
+      }, 2000);
     }
   };
 
-  // Function to save tasks to Chrome storage
   const saveTasks = (newTasks) => {
     if (chrome && chrome.storage && chrome.storage.sync) {
       chrome.storage.sync.set({ tasks: newTasks });
@@ -33,7 +31,7 @@ const TodoList = ({ goBackClick }) => {
       setErrorMessage('Failed to save tasks: chrome.storage.sync is not available.');
       setTimeout(() => {
         setErrorMessage('');
-      }, 2000); // Clear the error message after 5 seconds
+      }, 2000);
     }
   };
 
@@ -56,9 +54,9 @@ const TodoList = ({ goBackClick }) => {
     }
 
     const newTask = {
-      id: uuidv4(), // Generate a new UUID
+      id: uuidv4(),
       text: inputValue,
-      completed: false, // Initialize task as not completed
+      completed: false,
     };
 
     setTasks([...tasks, newTask]);

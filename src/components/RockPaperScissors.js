@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Buttons from './Buttons';
-import '../styles/rockPaperScissors.css'; // Import CSS file for styling
+import '../styles/rockPaperScissors.css';
 
 const RockPaperScissors = ({ goBackClick }) => {
     const [scores, setScores] = useState({ user: 0, comp: 0 });

@@ -22,7 +22,6 @@ const ColorPicker = ({ goBackClick }) => {
 
             const url = new URL(tab.url);
 
-            // Check if the URL is a chrome:// page, new tab, or local file
             if (['chrome:', 'about:newtab', 'file:'].includes(url.protocol)) {
                 throw new Error('This is not a valid URL/tab. Please open another URL.');
             }
@@ -35,12 +34,12 @@ const ColorPicker = ({ goBackClick }) => {
                 },
             });
 
-            setError(''); // Clear any previous error message
+            setError('');
         } catch (err) {
             setError(err.message);
             setTimeout(() => {
                 setError('');
-            }, 2000); // Clear the error message after 2 seconds
+            }, 2000);
         }
     };
 

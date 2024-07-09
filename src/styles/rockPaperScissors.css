@@ -30,12 +30,12 @@
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #fff; /* Light-orange */
+    background-color: #fff;
     transition: background-color 0.3s ease;
 }
 
 .choice.active {
-    background-color: #ffbf69; /* OrangeD */
+    background-color: #ffbf69;
 }
 
 .choice-icon {
@@ -70,9 +70,9 @@
 }
 
 .message {
-    background-color: #fff; /* Light teal */
+    background-color: #fff;
     font-size: 0.82rem;
-    color: #2ec4b6; /* Teal-mid */
+    color: #2ec4b6; 
     padding: 0.6rem;
     font-weight: bold;
     border-radius: 5px;

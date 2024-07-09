@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import copy from "copy-to-clipboard";
 import Buttons from './Buttons';
-import '../styles/textUtility.css'; // Import CSS file for styling
+import '../styles/textUtility.css';
 
 const Button = ({ onClick, disabled, children }) => (
     <button

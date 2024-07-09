@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Buttons from './Buttons';
-import '../styles/passwordGenerator.css'; // Import CSS file for styling
+import '../styles/passwordGenerator.css';
 
 const PasswordGenerator = ({ goBackClick }) => {
     const [password, setPassword] = useState('');

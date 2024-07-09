@@ -6,13 +6,13 @@ function Navbar({ title }) {
         header: {
             textAlign: 'center',
             height: "40px",
-            padding: '0.5rem', // Equivalent to p-5
+            padding: '0.5rem',
             backgroundColor: '#ffbf69',
             color: 'white',
         },
         paragraph: {
-            fontSize: '1rem', // Equivalent to text-[1.5rem]
-            fontWeight: '500', // Equivalent to font-medium
+            fontSize: '1rem', 
+            fontWeight: '500', 
         },
     };
 
