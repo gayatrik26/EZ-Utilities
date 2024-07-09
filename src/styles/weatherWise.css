@@ -1,0 +1,71 @@
+/* weather-wise.css */
+
+.weather-wise-container {
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-wise-heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.4rem 0.4rem;
+    align-self: flex-start;
+}
+
+.weather-info {
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-icon {
+    /* width: 50px;
+    height: 50px; */
+    margin-top: 1rem;
+    max-width: 100px; /* Example: Adjust size as needed */
+    margin: auto;
+    background-image: url('../assets/loading.gif');
+}
+
+.weather-data {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.city-name {
+    color: #ff9f1c;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.temperature {
+    color: #2ec4b6;
+    font-size: 3rem;
+}
+
+.feels-like {
+    color: #75B5AF;
+    font-weight: 500;
+}
+
+.description {
+    color: #ff9f1c;
+    font-weight: 500;
+}
+
+.weather-icon {
+    margin-left: 2.2rem;
+    /* Adjust margin or other styles as needed */
+}
+
+.error-message {
+    color: red;
+    font-weight: 500;
+    text-align: center;
+}
+.btn-container{
+    align-self: flex-start;
+}

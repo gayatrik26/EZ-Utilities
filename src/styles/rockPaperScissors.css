@@ -1,0 +1,88 @@
+.rock-paper-scissors-container {
+    font-family: monospace;
+    padding: 0.5rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-bottom: 0.4rem;
+}
+
+.choices-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.choice {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #fff; /* Light-orange */
+    transition: background-color 0.3s ease;
+}
+
+.choice.active {
+    background-color: #ffbf69; /* OrangeD */
+}
+
+.choice-icon {
+    font-size: 2.5rem;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.score {
+    text-align: center;
+}
+
+.score-text {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.score-label {
+    font-size: 1.3rem;
+}
+
+.message-box {
+    text-align: center;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.message {
+    background-color: #fff; /* Light teal */
+    font-size: 0.82rem;
+    color: #2ec4b6; /* Teal-mid */
+    padding: 0.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.message-text {
+    margin: 0;
+}
+
+.buttons-container {
+    align-self: flex-start;
+}

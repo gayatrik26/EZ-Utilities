@@ -1,7 +1,8 @@
-/* global chrome , Chrome */
+/* global chrome, Chrome */
 import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
 import Buttons from './Buttons';
+import '../styles/colorPicker.css'; 
 
 const ColorPicker = ({ goBackClick }) => {
     const [color, setColor] = useState('#ffffff');
@@ -11,56 +12,54 @@ const ColorPicker = ({ goBackClick }) => {
         setColor(newColor.hex);
     };
 
-    const ChangeBg = async () => {
+    const changeBackgroundColor = async () => {
         try {
-            let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+            const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
             if (!tab || !tab.id) {
-                // throw new Error('Invalid tab');
-                setError('This is not a valid URL/tab. Please open in another URL.');
+                throw new Error('This is not a valid URL/tab. Please open another URL.');
             }
 
             const url = new URL(tab.url);
 
             // Check if the URL is a chrome:// page, new tab, or local file
-            if (url.protocol === 'chrome:' || url.href === 'about:newtab' || url.protocol === 'file:') {
-                // throw new Error('This is not a valid URL/tab. Please open in another URL.');
-                setError('This is not a valid URL/tab. Please open in another URL.');
+            if (['chrome:', 'about:newtab', 'file:'].includes(url.protocol)) {
+                throw new Error('This is not a valid URL/tab. Please open another URL.');
             }
 
             await chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 args: [color],
-                func: (color) => {
-                    document.body.style.backgroundColor = color;
-                }
+                func: (selectedColor) => {
+                    document.body.style.backgroundColor = selectedColor;
+                },
             });
 
             setError(''); // Clear any previous error message
         } catch (err) {
-            // setError(err.message);
-            setError('This is not a valid URL/tab. Please open in another URL.');
+            setError(err.message);
             setTimeout(() => {
                 setError('');
-            }, 2000); // Clear the error message after 5 seconds
+            }, 2000); // Clear the error message after 2 seconds
         }
     };
 
     return (
-        <div className="page-container" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <h1 style={{ fontSize: "1.4rem", fontWeight: "600", margin: "0.3rem", alignSelf: "flex-start" }}>Color Picker</h1>
+        <div className="page-container">
+            <h1 className="title">Color Picker</h1>
             <ChromePicker
                 color={color}
                 onChangeComplete={handleChangeComplete}
+                className="picker"
             />
-            <div style={{ marginTop: '0.6rem', textAlign: "center", display: "flex" }}>
-                <h2 style={{ margin: "0.2rem" }}>Selected Color:</h2>
-                <div style={{ backgroundColor: color, width: '50px', height: '50px' }}></div>
+            <div className="color-preview">
+                <h2 className="color-label">Selected Color:</h2>
+                <div className="color-box" style={{ backgroundColor: color }}></div>
             </div>
-            {error && <p style={{ marginLeft: "0.5rem", color: '#ff9f1c', alignSelf: "flex-start" , fontSize:"0.7rem"}}>{error}</p>}
-            <div style={{ alignSelf: "flex-start" }}>
+            {error && <p className="error">{error}</p>}
+            <div className="button-container">
                 <Buttons text="Go Home" onClick={goBackClick} />
-                <Buttons text="Change Background-color" onClick={ChangeBg} />
+                <Buttons text="Change Background Color" onClick={changeBackgroundColor} />
             </div>
         </div>
     );

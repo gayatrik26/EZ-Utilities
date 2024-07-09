@@ -4,7 +4,6 @@ import "./index.css";
 import Homepage from "./components/Homepage";
 import ColorPicker from "./components/ColorPicker";
 import TextUtility from "./components/TextUtility";
-import YouTubeTimeSpan from "./components/YouTubeTimeSpan";
 import PasswordGenerator from "./components/PasswordGenerator";
 import TodoList from "./components/TodoList";
 import RockPaperScissors from "./components/RockPaperScissors";
@@ -33,8 +32,6 @@ const App = () => {
             case 5:
                 return <TodoList goBackClick={goBack} />;
             case 6:
-                return <YouTubeTimeSpan goBackClick={goBack} />;
-            case 7:
                 return <RockPaperScissors goBackClick={goBack} />;
             default:
                 return <></>;

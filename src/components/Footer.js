@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Footer(props) {
-    const footerStyle = {
-        height : "40px",
-        textAlign: 'center',
-        padding: '0.5rem',
-        backgroundColor: '#ffbf69',
-        color: 'white',
-    };
-
-    const paragraphStyle = {
-        fontSize: '1rem', 
-        fontWeight: '500', 
+function Footer({ title }) {
+    const styles = {
+        footer: {
+            height: "40px",
+            textAlign: 'center',
+            padding: '0.5rem',
+            backgroundColor: '#ffbf69',
+            color: 'white',
+        },
+        paragraph: {
+            fontSize: '1rem',
+            fontWeight: '500',
+        },
     };
 
     return (
-        <div>
-            <footer style={footerStyle}>
-                <p style={paragraphStyle}>&copy; 2024 {props.title}</p>
-            </footer>
-        </div>
+        <footer style={styles.footer}>
+            <p style={styles.paragraph}>&copy; 2024 {title}</p>
+        </footer>
     );
 }
 

@@ -5,7 +5,7 @@ const Buttons = ({ onClick, text }) => {
             <button
                 style={{
                     padding: '0.3rem 0.5rem',
-                    margin: '0.5rem 0.4rem',
+                    margin: '0.3rem 0.4rem',
                     textAlign: 'center',
                     backgroundColor: '#ffbf69',
                     color: 'white',

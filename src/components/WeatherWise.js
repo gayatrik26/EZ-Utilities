@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Buttons from './Buttons';
 import loadingGif from '../assets/loading.gif';
+import '../styles/weatherWise.css'; // Example: Import CSS file for styling
 
 const WeatherWise = ({ goBackClick }) => {
     const [weatherData, setWeatherData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false); // Start with loading as false
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
+                setLoading(true); // Set loading to true before fetching data
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(async (position) => {
                         const { latitude, longitude } = position.coords;
@@ -21,14 +23,14 @@ const WeatherWise = ({ goBackClick }) => {
                         }
                         const data = await response.json();
                         setWeatherData(data);
-                        setLoading(false);
                     });
                 } else {
                     throw new Error('Geolocation is not supported by this browser');
                 }
             } catch (error) {
                 setError(error.message);
-                setLoading(false);
+            } finally {
+                setLoading(false); // Set loading to false after fetching data or encountering an error
             }
         };
 
@@ -36,32 +38,37 @@ const WeatherWise = ({ goBackClick }) => {
     }, []);
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className="error-message">Error: {error}</div>;
     }
 
     return (
-        <>
-            <h1 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0.4rem', color: '#ffbf69' }}>WeatherWise</h1>
-            <div style={{ padding: '0.8rem', display: "flex", flexDirection: "column", alignItems: "center" }}>
-
-
+        <div className="weather-wise-container">
+            <h1 className="weather-wise-heading">Weather Wise</h1>
+            <div className="weather-info">
                 {loading ? (
-                    <img src={loadingGif} alt="Loading" style={{ width: '50px', height: '50px', marginTop: '1rem' }} />) : (
+                    <img src={loadingGif} alt="Loading" className="loading-icon" />
+                ) : (
                     weatherData && (
-                        <div style={{ marginTop: '1rem' }}>
-                            <h2 style={{ color: '#ff9f1c', fontSize: "1.2rem", fontWeight: "500" }}>{weatherData.name}</h2>
-                            <p style={{ color: '#2ec4b6', fontSize: "3rem" }}>{weatherData.main.temp} <sup>°C</sup></p>
-                            <p style={{ color: '#8BCCC6' }}>Feels like: {weatherData.main.feels_like} <sup>°C</sup></p>
-                            <p style={{ color: '#2ec4b6' , fontWeight:"500" }}>{weatherData.weather[0].description}</p>
+                        <div className="weather-data">
+                            <h2 className="city-name">{weatherData.name}</h2>
+                            <p className="temperature">{weatherData.main.temp} <sup>°C</sup></p>
+                            <p className="feels-like">Feels like: {weatherData.main.feels_like} <sup>°C</sup></p>
+                            <p className="description">{weatherData.weather[0].description}</p>
                             {weatherData.weather && weatherData.weather[0] && (
-                                <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="Weather Icon" style={{marginLeft:"2.2rem"}} />
+                                <img
+                                    src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
+                                    alt="Weather Icon"
+                                    className="weather-icon"
+                                />
                             )}
                         </div>
                     )
                 )}
             </div>
-            <Buttons text="Go Home" onClick={goBackClick} />
-        </>
+            <div className='btn-container'>
+                <Buttons text="Go Home" onClick={goBackClick} />
+            </div>
+        </div>
     );
 };
 

@@ -1,0 +1,72 @@
+.text-utility-container {
+    padding: 0.4rem 0.7rem;
+    margin-bottom: 0.2rem;
+}
+
+.utility-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-bottom: 0.4rem;
+}
+
+.input-text {
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.utility-button {
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 8px;
+    text-align: center;
+    background-color: #ffbf69;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.utility-button:hover{
+    background-color: #ff9f1c; /* OrangeD */
+    color: #4d4d4d;
+}
+
+.copy-message {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffbf69;
+    text-align: center;
+}
+
+.summary-container {
+    margin:0rem 0.9rem;
+    text-align: center;
+
+}
+
+.summary-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.summary-info {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}

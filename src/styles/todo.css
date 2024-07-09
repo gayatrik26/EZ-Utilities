@@ -1,0 +1,93 @@
+/* todo.css */
+
+.page-container {
+  max-width: 280px;
+  margin: auto;
+  padding: 0.5rem;
+}
+  
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  font-size: 1.2rem; 
+  font-weight: 600;
+  color: #2ec4b6;
+  margin-bottom: 0.6rem;
+  align-self: flex-start;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+  
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+  
+  .task.completed {
+    color: #555;
+    text-decoration: line-through;
+  }
+  
+  .remove-button {
+    background: none;
+    border: none;
+    color: #ff9f1c;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem;
+  }
+  
+  .input-task {
+    padding: 0.4rem;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 1.2rem;
+  }
+  
+  .add-button {
+    padding: 0.5rem;
+    background-color: #ffbf69;
+    color: #fff;
+    border: none;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    margin: 0 -0.3rem;
+  }
+
+.add-button:hover{
+  background-color: #ff9f1c; /* OrangeD */
+  color: #4d4d4d;
+}
+  
+  .error-message {
+    color: #ff9f1c;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+
+/* .btn-container{
+
+} */

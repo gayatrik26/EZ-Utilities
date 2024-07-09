@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Buttons from './Buttons';
+import '../styles/rockPaperScissors.css'; // Import CSS file for styling
 
 const RockPaperScissors = ({ goBackClick }) => {
     const [scores, setScores] = useState({ user: 0, comp: 0 });
@@ -55,107 +56,46 @@ const RockPaperScissors = ({ goBackClick }) => {
     };
 
     return (
-        <div className="page-container" style={styles.pageContainer}>
-            <h1 style={{ fontSize: "1.2rem", fontWeight: "600", alignSelf: "flex-start", marginBottom: "0.4rem" }}>Rock Paper Scissors</h1>
+        <div className="rock-paper-scissors-container">
+            <h1 className="game-title">Rock Paper Scissors</h1>
 
-            <div className="choices" style={styles.choices}>
+            <div className="choices-container">
                 {choices.map(({ id, icon }) => (
-                    <div key={id}
+                    <div
+                        key={id}
                         className={`choice ${selectedChoice === id ? 'active' : ''}`}
                         onClick={() => handleChoiceClick(id)}
                         onMouseEnter={() => setSelectedChoice(id)}
                         onMouseLeave={() => setSelectedChoice(null)}
-                        style={styles.choice}>
-                        <span style={styles.icon}>{icon}</span>
+                    >
+                        <span className="choice-icon">{icon}</span>
                     </div>
                 ))}
             </div>
 
-            <div className="score-board" style={styles.scoreBoard}>
-                <div className="score" style={styles.score}>
-                    <p style={styles.scoreText}>{scores.user}</p>
-                    <p style={styles.scoreText}>YOU</p>
+            <div className="scoreboard">
+                <div className="score">
+                    <p className="score-text">{scores.user}</p>
+                    <p className="score-label">YOU</p>
                 </div>
-                <div className="score" style={styles.score}>
-                    <p style={styles.scoreText}>{scores.comp}</p>
-                    <p style={styles.scoreText}>COMP</p>
+                <div className="score">
+                    <p className="score-text">{scores.comp}</p>
+                    <p className="score-label">COMP</p>
                 </div>
             </div>
 
-            <div className="msg-box" style={styles.msgBox}>
-                <div className="msg" style={styles.msg}>
-                    <p style={styles.msgText}>{message}</p>
+            <div className="message-box">
+                <div className="message">
+                    <p className="message-text">{message}</p>
                 </div>
             </div>
-            <div style={{alignSelf:"flex-start"}}>
+
+            <div className="buttons-container">
                 <Buttons text="Reset" onClick={handleReset} />
                 <Buttons text="Go Home" onClick={goBackClick} />
             </div>
         </div>
     );
-};
-
-const styles = {
-    pageContainer: {
-        fontFamily: 'monospace',
-        padding: '0.5rem',
-        width: '280px',
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-    },
-    choices: {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '1rem',
-        marginTop: '1rem',
-        alignItems: "center",
-    },
-    choice: {
-        height: '70px',
-        width: '70px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: '50%',
-        cursor: 'pointer',
-        backgroundColor: '#fff',  // Light-orange
-        transition: 'background-color 0.3s ease',
-    },
-    icon: {
-        fontSize: '2.5rem',
-    },
-    scoreBoard: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '0.8rem',
-        marginTop: '1rem',
-    },
-    score: {
-        textAlign: 'center',
-    },
-    scoreText: {
-        fontSize: '1.5rem',
-        margin: 0,
-    },
-    msgBox: {
-        textAlign: 'center',
-        marginTop: '1rem',
-        marginBottom: "0.5rem"
-    },
-    msg: {
-        backgroundColor: '#fff',  // Teal-mid
-        fontSize: '0.82rem',
-        color: '#2ec4b6',
-        padding: '0.6rem',
-        fontWeight: 'bold',
-        borderRadius: '5px',
-        textAlign: 'center',
-    },
-    msgText: {
-        margin: 0,
-    },
 };
 
 export default RockPaperScissors;
