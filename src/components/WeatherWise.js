@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Buttons from './Buttons';
 import loadingGif from '../assets/loading.gif';
-import '../styles/weatherWise.css'; // Example: Import CSS file for styling
+import '../styles/weatherWise.css';
 
 const WeatherWise = ({ goBackClick }) => {
     const [weatherData, setWeatherData] = useState(null);
-    const [loading, setLoading] = useState(false); // Start with loading as false
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
-                setLoading(true); // Set loading to true before fetching data
+                setLoading(true);
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(async (position) => {
                         const { latitude, longitude } = position.coords;
@@ -23,14 +23,14 @@ const WeatherWise = ({ goBackClick }) => {
                         }
                         const data = await response.json();
                         setWeatherData(data);
+                        setLoading(false);
                     });
                 } else {
                     throw new Error('Geolocation is not supported by this browser');
                 }
             } catch (error) {
+                setLoading(false);
                 setError(error.message);
-            } finally {
-                setLoading(false); // Set loading to false after fetching data or encountering an error
             }
         };
 
