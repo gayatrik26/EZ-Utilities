@@ -70,3 +70,4 @@ Download EZ Utilities today and streamline your browsing experience with these e
 
 
 ![Screenshot 2024-07-09 150203](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/eeb8be33-ba38-4af2-b540-e2a0dbe53e8c)
+
