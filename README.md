@@ -33,6 +33,9 @@ Enhance your browsing experience with EZ Utilities, your all-in-one toolkit for 
 
 Customize settings and preferences to tailor EZ Utilities to your workflow. Each utility is designed to be lightweight and responsive, ensuring a smooth browsing experience without impacting performance.
 
+## Privacy Policy:
+[Link](https://docs.google.com/document/d/1Gjl_fSwLa6NOVKTApmu8USicLXSIYPq7aKuRjxpvmTI/edit?usp=sharing)
+
 ## Get Started:
 
 Download EZ Utilities today and streamline your browsing experience with these essential tools, all conveniently accessible from your Chrome browser.
