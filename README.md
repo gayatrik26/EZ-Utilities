@@ -38,7 +38,8 @@ Customize settings and preferences to tailor EZ Utilities to your workflow. Each
 
 ## Get Started:
 
-Download EZ Utilities today and streamline your browsing experience with these essential tools, all conveniently accessible from your Chrome browser.
+Download EZ Utilities today and streamline your browsing experience with these essential tools, all conveniently accessible from your Chrome browser. 
+[Live-Link](https://chromewebstore.google.com/detail/ez-utilities/bjdfnnianbafojfjefkffmnabnffibgc?hl=en-GB&authuser=0)
 
 
 ## Here are some Screenshots
