@@ -55,13 +55,13 @@ Download EZ Utilities today and streamline your browsing experience with these e
 ![Screenshot 2024-07-09 145814](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/7612654c-74c2-40ea-8a41-dbec35418203)
 
 
+![Screenshot 2024-07-09 145643](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/e69e8d26-7fab-495a-ad46-f50b8736a16c)
+
+
 ![Screenshot 2024-07-09 150038](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/5c9fe4e0-8879-4fb0-9054-a310edca0924)
 
 
 ![Screenshot 2024-07-09 145727](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/eb705edd-123e-46d0-baab-9f0b53ed058b)
-
-
-![Screenshot 2024-07-09 145643](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/e69e8d26-7fab-495a-ad46-f50b8736a16c)
 
 
 ![Screenshot 2024-07-09 145903](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/7303348d-2758-4550-9ff6-074ec9b47149)
