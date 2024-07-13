@@ -43,6 +43,9 @@ Download EZ Utilities today and streamline your browsing experience with these e
 
 
 ## Here are some Screenshots
+![Add-a-heading](https://github.com/user-attachments/assets/cdf142cd-3a38-4224-9d11-09d37c70390c)
+
+
 ![Screenshot 2024-07-09 145750](https://github.com/gayatrik26/EZ-Utilities/assets/127473669/3f8785a6-63fd-4ccf-b293-8ad4e6e6b76d)
 
 
